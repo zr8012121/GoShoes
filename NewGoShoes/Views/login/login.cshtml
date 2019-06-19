@@ -101,6 +101,9 @@
                         data: { name: name, pwd: pwd },
                         success: function (d) {
                             alert(d.msg);
+                              if (d.code == 200) {//注册成功 直接跳主页
+                            window.location.href = "/Index/Index";
+                        }
                         }
                     });//ajax
                 }//else

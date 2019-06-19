@@ -48,10 +48,10 @@
                     <nav>
                         <ul>
                             <li><a href="index.html" class="active">主页</a></li>
-                            <li><a href="about.html">关于我们</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="shop.html">购鞋</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
+                            <li><a href="/about/about">关于我们</a></li>
+                            <li><a href="/notfound/notfound">404</a></li>
+                            <li><a href="/shop/shop">购鞋</a></li>
+                            <li><a href="/contact/contact">联系我们</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -163,7 +163,8 @@
                         鞋底flex弧面更加贴合脚型，提供良好的支撑效果；侧面经典耐克LOGO，显眼美观；橡胶大底耐磨防滑，是一款不错的休闲必备。
                     </p>
                     <div class="shop-button">
-                        <a href="shop.html">查看详情</a>
+                        <a href="/shop/shop">查看详情</a>
+
                     </div>
                 </div>
             </div>
@@ -190,7 +191,7 @@
                             外层覆面包覆如袜子般的内衬结构，缔造缓震出众的迈步体验。
                         </p>
                         <div class="shop-button">
-                            <a href="shop.html">查看详情</a>
+                            <a href="/shop/shop">查看详情</a>
                         </div>
                     </div>
                 </div>
@@ -214,7 +215,7 @@
                         <h3>Air Jordan</h3>
                         <p>Air Jordan 1 Cargo 从旅行和飞行汲取设计灵感，采用交错覆面设计。皮革和织物组合鞋面轻盈舒适，经典 AJ1 中底带来经久不衰的缓震性能。</p>
                         <div class="shop-button two">
-                            <a href="shop.html">查看详情</a>
+                            <a href="/shop/shop">查看详情</a>
                         </div>
                     </div>
                 </div>
@@ -373,10 +374,10 @@
                         <h4>GoShoes <span>的信息</span> </h4>
                         <ul>
                             <li><a href="index.html">主页</a></li>
-                            <li><a href="about.html">关于我们</a></li>
-                            <li><a href="404.html">服务</a></li>
-                            <li><a href="404.html">404页面</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
+                            <li><a href="/about/about">关于我们</a></li>
+                            <li><a href="/notfound/notfound">服务</a></li>
+                            <li><a href="/notfound/notfound">404页面</a></li>
+                            <li><a href="/contact/contact">联系我们</a></li>
                         </ul>
                     </div>
 
@@ -454,17 +455,17 @@
     <!-- cart-js -->
     <script src="~/Scripts/GoShoes/js/minicart.js"></script>
     <script>
-		shoe.render();
+        shoe.render();
 
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
+        shoe.cart.on('shoe_checkout', function (evt) {
+            var items, len, i;
 
-			if (this.subtotal() > 0) {
-				items = this.items();
+            if (this.subtotal() > 0) {
+                items = this.items();
 
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
     </script>
     <!-- //cart-js -->
     <!--search-bar-->
@@ -472,35 +473,35 @@
     <!--//search-bar-->
     <script src="~/Scripts/GoShoes/js/responsiveslides.min.js"></script>
     <script>
-		$(function () {
-			$("#slider4").responsiveSlides({
-				auto: true,
-				pager: true,
-				nav: true,
-				speed: 1000,
-				namespace: "callbacks",
-				before: function () {
-					$('.events').append("<li>before event fired.</li>");
-				},
-				after: function () {
-					$('.events').append("<li>after event fired.</li>");
-				}
-			});
-		});
+        $(function () {
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 1000,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+        });
     </script>
     <!-- js for portfolio lightbox -->
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="~/Scripts/GoShoes/js/move-top.js"></script>
     <script type="text/javascript" src="~/Scripts/GoShoes/js/easing.js"></script>
     <script type="text/javascript">
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
-			});
-		});
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
     </script>
     <!-- //end-smoth-scrolling -->
 
