@@ -248,6 +248,22 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\loginCss\css\bootstrap.min.css" />
+    <Content Include="Scripts\loginCss\css\demo.css" />
+    <Content Include="Scripts\loginCss\css\font-awesome.min.css" />
+    <Content Include="Scripts\loginCss\css\style1.css" />
+    <Content Include="Scripts\loginCss\css\style2.css" />
+    <Content Include="Scripts\loginCss\css\style3.css" />
+    <Content Include="Scripts\loginCss\css\style4.css" />
+    <Content Include="Scripts\loginCss\css\templatemo-style.css" />
+    <Content Include="Scripts\loginCss\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\loginCss\img\letter_bg_01.jpg" />
+    <Content Include="Scripts\loginCss\img\letter_bg_02.jpg" />
+    <Content Include="Scripts\loginCss\img\letter_bg_03.jpg" />
+    <Content Include="Scripts\loginCss\img\pattern.png" />
+    <Content Include="Scripts\loginCss\js\app.js" />
+    <Content Include="Scripts\loginCss\js\modernizr.custom.86080.js" />
+    <Content Include="Scripts\loginCss\js\particles.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -271,11 +287,17 @@
     <Content Include="Views\payment\payment.cshtml" />
     <Content Include="Views\shop\shop.cshtml" />
     <Content Include="Views\single\single.cshtml" />
+    <Content Include="Views\login\login.cshtml" />
+    <Content Include="Scripts\loginCss\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\loginCss\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\loginCss\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\loginCss\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\loginCss\fonts\FontAwesome.otf" />
+    <Content Include="Views\login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -14,5 +14,16 @@ namespace NewGoShoes.Controllers
             return View();
         }
 
+
+        public ActionResult login()
+        {
+            return View();
+        }
+
+        public ActionResult Register() {
+
+            return View();
+        }
+
     }
 }
