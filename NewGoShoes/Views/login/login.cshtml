@@ -23,10 +23,9 @@
     <script type="text/javascript" src="~/Scripts/loginCss/js/modernizr.custom.86080.js"></script>
     <style type="text/css">
         #btn_ok {
-        margin-left:20px;
-        margin-top:20px;
+            margin-left: 20px;
+            margin-top: 20px;
         }
-
     </style>
 </head>
 
@@ -48,25 +47,26 @@
             <div class="tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
                 <header class="mb-5"><h1>欢迎来到GoShoes</h1></header>
                 <P class="mb-5">
-                    请先登陆！</P>
+                    请先登陆！
+                </P>
 
-                <form action="#" method="get" class="subscribe-form">
+                <form id="my_form" action="#" method="get" class="subscribe-form">
                     <div class="row form-section">
 
                         <div class="col-md-7 col-sm-7 col-xs-7">
-                            <input name="email" type="text" class="form-control" id="contact_email" placeholder="请输入账号..." required />
-                            <input name="email" type="password" class="form-control" id="contact_email" placeholder="请输入密码..." required />
+                            <input name="email" type="text" class="form-control" id="user_name" placeholder="请输入账号..." required />
+                            <input name="email" type="password" class="form-control" id="user_pwd" placeholder="请输入密码..." required />
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-5">
-                          <span class="label label-warning">没有账号？</span>
-                          <button type="button" class="btn btn-primary">注册</button>
+                            <span class="label label-warning">没有账号？</span>
+                            <button type="button" class="btn btn-primary">注册</button>
                         </div>
 
                         <div>
-                            <button type="submit" id="btn_ok" class="tm-btn-subscribe">确定</button>
-                        </div>    
+                            <button type="button" id="btn_ok" class="tm-btn-subscribe">确定</button>
+                        </div>
                     </div>
-                    
+
                 </form>
 
                 <div class="tm-social-icons-container text-xs-center">
@@ -85,12 +85,30 @@
             </p>
         </div>
     </div>
-<script>
-    $(function () {
+    <script>
+        $(function () {
+            //登陆按钮
+            $("#btn_ok").click(function () {
+                var name = $("#user_name").val();
+                var pwd = $("#user_pwd").val();
+                if (name == "" || pwd == "") {
+                    alert("用户名或密码不能为空!");
+                } else {
+                    $.ajax({
+                        url: "/login/loginIsOk",
+                        type: "post",
+                        dataType: "json",
+                        data: { name: name, pwd: pwd },
+                        success: function (d) {
+                            alert(d.msg);
+                        }
+                    });//ajax
+                }//else
 
+            });
 
-    })
-</script>
+        })
+    </script>
 </body>
 
 <script type="text/javascript" src="~/Scripts/loginCss/js/particles.js"></script>

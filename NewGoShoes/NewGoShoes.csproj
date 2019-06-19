@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,6 +139,45 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GoShoes1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoShoes1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GoShoes1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GoShoes1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoShoes1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_callMe.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_order.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_shoes.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_shoesType.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_user.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_userType.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_userWords.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T__ordersDetail.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +189,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\GoShoes1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GoShoes1.Context.cs</LastGenOutput>
+      <DependentUpon>GoShoes1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\GoShoes1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GoShoes1.edmx</DependentUpon>
+      <LastGenOutput>GoShoes1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\GoShoes\fonts\fontawesome-webfont.eot" />
@@ -156,6 +211,13 @@
     <Content Include="Scripts\GoShoes\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\GoShoes\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\GoShoes\images\Thumbs.db" />
+    <EntityDeploy Include="Models\GoShoes1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GoShoes1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GoShoes1.edmx.diagram">
+      <DependentUpon>GoShoes1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\GoShoes\css\about.css" />
     <Content Include="Scripts\GoShoes\css\bootstrap.css" />
@@ -297,7 +359,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -311,6 +372,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
