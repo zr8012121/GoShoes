@@ -48,22 +48,22 @@
             <div class="tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
                 <header class="mb-5"><h1>欢迎注册GoShoes</h1></header>
                 <P class="mb-5">
-                   
+
                 </P>
 
                 <form action="#" method="get" class="subscribe-form">
                     <div class="row form-section">
 
                         <div class="col-md-7 col-sm-7 col-xs-7">
-                            <input name="email" type="text" class="form-control" id="contact_email" placeholder="请输入账号..." required />
-                            <input name="email" type="password" class="form-control"  placeholder="请输入密码..." required />
-                            <input name="email" type="password" class="form-control"  placeholder="确认密码..." required />
+                            <input name="email" type="text" class="form-control" id="txt_name" placeholder="请输入账号..." required />
+                            <input name="email" type="password" class="form-control" id="txt_pwd" placeholder="请输入密码..." required />
+                            <input name="email" type="password" class="form-control" id="txt_rePwd" placeholder="确认密码..." required />
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-5">
                         </div>
 
                         <div>
-                            <button type="submit" id="btn_ok" class="tm-btn-subscribe">确定</button>
+                            <button type="button" id="btn_ok" class="tm-btn-subscribe">确定</button>
                         </div>
                     </div>
 
@@ -87,9 +87,32 @@
     </div>
     <script>
         $(function () {
+            $("#btn_ok").click(function () {
+
+                var name1 = $("#txt_name").val();
+                var pwd1 = $("#txt_pwd").val();
+                var rePwd1 = $("#txt_rePwd").val();
+                var datas = {};
+                datas.name = name1;
+                datas.pwd = pwd1;
+                datas.rePwd = rePwd1;
+                $.ajax({
+                    url: "/login/userRegister",
+                    type: "post",
+                    dataType: "json",
+                    data: $.param(datas),
+                    success: function (d) {
+                        alert(d.msg);
+                        if (d.code == 200) {//注册成功 直接跳主页
+                            window.location.href = "/Index/Index";
+                        }
+                    }
+                }); // ajax
+
+            });//btn_ok
 
 
-        })
+        });//function
     </script>
 </body>
 

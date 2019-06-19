@@ -58,5 +58,81 @@ namespace NewGoShoes.Controllers
             return Json(obj);
         }
 
+
+        //注册用户
+        [HttpPost]
+        public JsonResult userRegister(string name, string pwd,string rePwd) {
+            //var s = new
+            //{
+            //    userName = name,
+            //    userPassword = pwd,
+            //    userPowerId = 2,
+            //    userClose = 0
+            //};
+
+            var obj = new
+            {
+                msg = "注册失败",
+                code = 201
+            };
+
+            if (string.IsNullOrEmpty(name))
+            {
+                obj = new
+                {
+                    msg = "用户名不能为空",
+                    code = 203
+                };
+                return Json(obj);
+            }
+            if (string.IsNullOrEmpty(pwd))
+            {
+                obj = new
+                {
+                    msg = "密码不能为空",
+                    code = 204
+                };
+                return Json(obj);
+            }
+
+
+            if (string.IsNullOrEmpty(rePwd))
+            {
+                obj = new
+                {
+                    msg = "再次输入密码不能为空",
+                    code = 205
+                };
+                return Json(obj);
+            }
+            if (pwd != rePwd) {
+                obj = new
+                {
+                    msg = "两次输入密码不一样",
+                    code = 206
+                };
+                return Json(obj);
+            }
+            GoShoesDBEntities db = new GoShoesDBEntities();
+            var abc = db.T_user.Where(c => c.userName == name).FirstOrDefault();
+            if (abc != null) {
+                obj = new {
+                    msg="注册失败，用户存在",
+                    code=202
+                };
+                return Json(obj);
+            }
+            T_user s = new T_user();
+            s.userName = name;
+            s.userPassword = pwd;
+            s.userPowerId = 2;
+            s.userClose = 0;
+            db.T_user.Add(s);
+            int rs = db.SaveChanges();
+          
+            if (rs > 0) obj = new {msg="注册成功",code=200 };
+            return Json(obj);
+        }
+
     }
 }
