@@ -18,6 +18,7 @@ namespace NewGoShoes.Models
         {
             this.T_order = new HashSet<T_order>();
             this.T_userWords = new HashSet<T_userWords>();
+            this.T_buyCar = new HashSet<T_buyCar>();
         }
     
         public int userId { get; set; }
@@ -29,5 +30,6 @@ namespace NewGoShoes.Models
         public virtual ICollection<T_order> T_order { get; set; }
         public virtual T_userType T_userType { get; set; }
         public virtual ICollection<T_userWords> T_userWords { get; set; }
+        public virtual ICollection<T_buyCar> T_buyCar { get; set; }
     }
 }

@@ -30,6 +30,7 @@
     <link href="~/Scripts/GoShoes/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- font-awesome-icons -->
     <link href="~/Scripts/GoShoes/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <!-- //font-awesome-icons -->
     <link href="http://fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
           rel="stylesheet">
@@ -42,18 +43,18 @@
         <div class="wrapper_top_w3layouts">
             <div class="header_agileits">
                 <div class="logo inner_page_log">
-                    <h1><a class="navbar-brand" href="index.html"><span>Go</span> <i>Shoes</i></a></h1>
+                    <h1><a class="navbar-brand" href="/index/index"><span>Go</span> <i>Shoes</i></a></h1>
                 </div>
                 <div class="overlay overlay-contentpush">
                     <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
 
                     <nav>
                         <ul>
-                            <li><a href="index.html" class="active">主页</a></li>
+                            <li><a href="/index/index" class="active">主页</a></li>
                             <li><a href="about.html">关于我们</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="shop.html">购鞋</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
+                            <li><a href="/notfound/notfound">404</a></li>
+                            <li><a href="/shop/shop">购鞋</a></li>
+                            <li><a href="/contact/contact">联系我们</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -93,7 +94,7 @@
             <div class="inner_breadcrumb_agileits_w3">
 
                 <ul class="short">
-                    <li><a href="index.html">主页</a><i>|</i></li>
+                    <li><a href="/index/index">主页</a><i>|</i></li>
                     <li>详情</li>
                 </ul>
             </div>
@@ -111,7 +112,7 @@
 
                         <ul class="slides">
                             <li data-thumb="~/Scripts/GoShoes/images/d2.jpg">
-                                <div class="thumb-image"> <img src="~/Scripts/GoShoes/images/d2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                                <div class="thumb-image"> <img id="shoesImg" src="~/Scripts/GoShoes/images/d2.jpg" data-imagezoom="true" class="img-responsive"> </div>
                             </li>
                             <li data-thumb="~/Scripts/GoShoes/images/d1.jpg">
                                 <div class="thumb-image"> <img src="~/Scripts/GoShoes/images/d1.jpg" data-imagezoom="true" class="img-responsive"> </div>
@@ -125,9 +126,9 @@
                 </div>
             </div>
             <div class="col-md-8 single-right-left simpleCart_shelfItem">
-                <h3>Shoe Rock Vision（SRV）运动鞋（蓝色）</h3>
+                <h3 id="shoesName">ShoeRockVision</h3>
                 <p>
-                    <span class="item_price">$650</span>
+                    <span id="shoesPrice" class="item_price">$650</span>
                     <del>$1,199</del>
                 </p>
                 <div class="rating1">
@@ -148,6 +149,17 @@
                     </form>
                 </div>
                 <div class="color-quality">
+
+                    <div class="color-quality-right">
+                        <h5>选择数量 :</h5>
+                        <select id="shoesNum" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="1">1双</option>
+                            <option value="2">2双</option>
+                            <option value="3">3双</option>
+                            <option value="4">4双</option>
+                        </select>
+                    </div>
+
                     <div class="color-quality-right">
                         <h5>选择码数 :</h5>
                         <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
@@ -157,6 +169,7 @@
                             <option value="null">43 码</option>
                         </select>
                     </div>
+
                 </div>
                 <div class="occasional">
                     <h5>类型 :</h5>
@@ -176,9 +189,9 @@
                         <form action="#" method="post">
                             <input type="hidden" name="cmd" value="_cart">
                             <input type="hidden" name="add" value="1">
-                            <input type="hidden" name="shoe_item" value="Chikku Loafers">
+                            <input type="hidden" name="shoe_item" value="（SRV）运动鞋（蓝色）">
                             <input type="hidden" name="amount" value="405.00">
-                            <input type="submit" name="submit" value="添加到购物车" class="button add">
+                            <input type="button" id="btn_add" name="submit" value="添加到购物车" class="button add">
 
                             <a href="#" data-toggle="modal" data-target="#myModal1"></a>
                         </form>
@@ -600,7 +613,7 @@
     <div class="footer_agileinfo_w3">
         <div class="footer_inner_info_w3ls_agileits">
             <div class="col-md-3 footer-left">
-                <h2><a href="index.html"><span>D</span>我们的鞋 </a></h2>
+                <h2><a href="/index/index"><span>D</span>我们的鞋 </a></h2>
                 <p>Nike 安踏 匹克 乔丹 特步 361°  只要你想得到的 我们这都有.</p>
                 <ul class="social-nav model-3d-0 footer-social social two">
                     <li>
@@ -634,11 +647,11 @@
                     <div class="col-md-4 sign-gd">
                         <h4>GoShoes <span>的信息</span> </h4>
                         <ul>
-                            <li><a href="index.html">主页</a></li>
+                            <li><a href="/index/index">主页</a></li>
                             <li><a href="about.html">关于我们</a></li>
-                            <li><a href="404.html">服务</a></li>
-                            <li><a href="404.html">404页面</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
+                            <li><a href="/notfound/notfound">服务</a></li>
+                            <li><a href="/notfound/notfound">404页面</a></li>
+                            <li><a href="/contact/contact">联系我们</a></li>
                         </ul>
                     </div>
 
@@ -711,17 +724,7 @@
     <!-- cart-js -->
     <script src="~/Scripts/GoShoes/js/minicart.js"></script>
     <script>
-        shoe.render();
-
-        shoe.cart.on('shoe_checkout', function (evt) {
-            var items, len, i;
-
-            if (this.subtotal() > 0) {
-                items = this.items();
-
-                for (i = 0, len = items.length; i < len; i++) { }
-            }
-        });
+      
     </script>
     <!-- //cart-js -->
     <!-- /nav -->
@@ -754,7 +757,43 @@
                 width: 'auto',
                 fit: true
             });
+
+            //添加到购物车
+            $("#btn_add").click(function () {
+                var shoesPrice = $("#shoesPrice").html().split("$")[1];
+                var shoesName = $("#shoesName").text();
+
+
+                var shoesNum = $("#shoesNum").val();
+
+                var shoesImg ="~"+ $("#shoesImg").attr("src");
+                var datas = {};
+                datas.shoesPrice = shoesPrice;
+                datas.shoesName = shoesName;
+                datas.shoesNum = shoesNum;
+                datas.shoesImg = shoesImg;
+
+                $.ajax({
+                    url: "/single/CreateCar",
+                    type: "post",
+                    dataType: "json",
+                    data: $.param(datas),
+                    success: function (d) {
+                        alert(d.msg)
+
+                    }
+                });//ajax
+               
+
+                
+
+            });
+
+
         });
+    </script>
+    <script>
+  
     </script>
     <!-- FlexSlider -->
     <script src="~/Scripts/GoShoes/js/jquery.flexslider.js"></script>

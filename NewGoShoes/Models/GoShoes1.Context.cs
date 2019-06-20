@@ -26,6 +26,7 @@ namespace NewGoShoes.Models
         }
     
         public DbSet<T__ordersDetail> T__ordersDetail { get; set; }
+        public DbSet<T_buyCar> T_buyCar { get; set; }
         public DbSet<T_callMe> T_callMe { get; set; }
         public DbSet<T_order> T_order { get; set; }
         public DbSet<T_shoes> T_shoes { get; set; }

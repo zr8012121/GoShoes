@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewGoShoes.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace NewGoShoes.Controllers
         // GET: Index
         public ActionResult Index()
         {
+            //var user = HttpContext.Cache["c_User"] as T_user;
+            //var uid = user.userId;
+
             return View();
         }
     }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GoShoesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GoShoesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="T_ ordersDetail">
           <Key>
             <PropertyRef Name="ordersDeId" />
@@ -13,6 +13,17 @@
           <Property Name="shoesId" Type="int" Nullable="false" />
           <Property Name="shoesNum" Type="int" Nullable="false" />
           <Property Name="orderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_buyCar">
+          <Key>
+            <PropertyRef Name="carSelfId" />
+          </Key>
+          <Property Name="carSelfId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shoesId" Type="int" Nullable="false" />
+          <Property Name="carNum" Type="int" Nullable="false" />
+          <Property Name="shoesImg" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="shoesPrices" Type="money" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_callMe">
           <Key>
@@ -97,6 +108,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_buyCar_T_shoes">
+          <End Role="T_shoes" Type="Self.T_shoes" Multiplicity="1" />
+          <End Role="T_buyCar" Type="Self.T_buyCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_shoes">
+              <PropertyRef Name="shoesId" />
+            </Principal>
+            <Dependent Role="T_buyCar">
+              <PropertyRef Name="shoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_buyCar_T_user">
+          <End Role="T_user" Type="Self.T_user" Multiplicity="1" />
+          <End Role="T_buyCar" Type="Self.T_buyCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="T_buyCar">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_order_T_user">
           <End Role="T_user" Type="Self.T_user" Multiplicity="1" />
           <End Role="T_order" Type="Self.T_order" Multiplicity="*" />
@@ -147,6 +182,7 @@
         </Association>
         <EntityContainer Name="GoShoesDBModelStoreContainer">
           <EntitySet Name="T_ ordersDetail" EntityType="Self.T_ ordersDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_buyCar" EntityType="Self.T_buyCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_callMe" EntityType="Self.T_callMe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_order" EntityType="Self.T_order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_shoes" EntityType="Self.T_shoes" Schema="dbo" store:Type="Tables" />
@@ -161,6 +197,14 @@
           <AssociationSet Name="FK_T_ ordersDetail_T_shoes" Association="Self.FK_T_ ordersDetail_T_shoes">
             <End Role="T_shoes" EntitySet="T_shoes" />
             <End Role="T_ ordersDetail" EntitySet="T_ ordersDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_buyCar_T_shoes" Association="Self.FK_T_buyCar_T_shoes">
+            <End Role="T_shoes" EntitySet="T_shoes" />
+            <End Role="T_buyCar" EntitySet="T_buyCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_buyCar_T_user" Association="Self.FK_T_buyCar_T_user">
+            <End Role="T_user" EntitySet="T_user" />
+            <End Role="T_buyCar" EntitySet="T_buyCar" />
           </AssociationSet>
           <AssociationSet Name="FK_T_order_T_user" Association="Self.FK_T_order_T_user">
             <End Role="T_user" EntitySet="T_user" />
@@ -179,8 +223,7 @@
             <End Role="T_userWords" EntitySet="T_userWords" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GoShoesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -194,6 +237,19 @@
           <Property Name="orderId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="T_order" Relationship="Self.FK_T__ordersDetail_T_order" FromRole="T__ordersDetail" ToRole="T_order" />
           <NavigationProperty Name="T_shoes" Relationship="Self.FK_T__ordersDetail_T_shoes" FromRole="T__ordersDetail" ToRole="T_shoes" />
+        </EntityType>
+        <EntityType Name="T_buyCar">
+          <Key>
+            <PropertyRef Name="carSelfId" />
+          </Key>
+          <Property Name="carSelfId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shoesId" Type="Int32" Nullable="false" />
+          <Property Name="carNum" Type="Int32" Nullable="false" />
+          <Property Name="shoesImg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_shoes" Relationship="Self.FK_T_buyCar_T_shoes" FromRole="T_buyCar" ToRole="T_shoes" />
+          <Property Name="shoesPrices" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_user" Relationship="GoShoesDBModel.FK_T_buyCar_T_user" FromRole="T_buyCar" ToRole="T_user" />
         </EntityType>
         <EntityType Name="T_callMe">
           <Key>
@@ -224,6 +280,7 @@
           <Property Name="shoesScore" Type="Int32" Nullable="false" />
           <Property Name="shoesTypeId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="T__ordersDetail" Relationship="Self.FK_T__ordersDetail_T_shoes" FromRole="T_shoes" ToRole="T__ordersDetail" />
+          <NavigationProperty Name="T_buyCar" Relationship="Self.FK_T_buyCar_T_shoes" FromRole="T_shoes" ToRole="T_buyCar" />
           <NavigationProperty Name="T_shoesType" Relationship="Self.FK_T_shoes_T_shoesType" FromRole="T_shoes" ToRole="T_shoesType" />
         </EntityType>
         <EntityType Name="T_shoesType">
@@ -246,6 +303,7 @@
           <NavigationProperty Name="T_order" Relationship="Self.FK_T_order_T_user" FromRole="T_user" ToRole="T_order" />
           <NavigationProperty Name="T_userType" Relationship="Self.FK_T_user_T_userType" FromRole="T_user" ToRole="T_userType" />
           <NavigationProperty Name="T_userWords" Relationship="Self.FK_T_userWords_T_user" FromRole="T_user" ToRole="T_userWords" />
+          <NavigationProperty Name="T_buyCar" Relationship="GoShoesDBModel.FK_T_buyCar_T_user" FromRole="T_user" ToRole="T_buyCar" />
         </EntityType>
         <EntityType Name="T_userType">
           <Key>
@@ -284,6 +342,18 @@
               <PropertyRef Name="shoesId" />
             </Principal>
             <Dependent Role="T__ordersDetail">
+              <PropertyRef Name="shoesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_buyCar_T_shoes">
+          <End Role="T_shoes" Type="Self.T_shoes" Multiplicity="1" />
+          <End Role="T_buyCar" Type="Self.T_buyCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_shoes">
+              <PropertyRef Name="shoesId" />
+            </Principal>
+            <Dependent Role="T_buyCar">
               <PropertyRef Name="shoesId" />
             </Dependent>
           </ReferentialConstraint>
@@ -338,6 +408,7 @@
         </Association>
         <EntityContainer Name="GoShoesDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="T__ordersDetail" EntityType="Self.T__ordersDetail" />
+          <EntitySet Name="T_buyCar" EntityType="Self.T_buyCar" />
           <EntitySet Name="T_callMe" EntityType="Self.T_callMe" />
           <EntitySet Name="T_order" EntityType="Self.T_order" />
           <EntitySet Name="T_shoes" EntityType="Self.T_shoes" />
@@ -352,6 +423,10 @@
           <AssociationSet Name="FK_T__ordersDetail_T_shoes" Association="Self.FK_T__ordersDetail_T_shoes">
             <End Role="T_shoes" EntitySet="T_shoes" />
             <End Role="T__ordersDetail" EntitySet="T__ordersDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_buyCar_T_shoes" Association="Self.FK_T_buyCar_T_shoes">
+            <End Role="T_shoes" EntitySet="T_shoes" />
+            <End Role="T_buyCar" EntitySet="T_buyCar" />
           </AssociationSet>
           <AssociationSet Name="FK_T_order_T_user" Association="Self.FK_T_order_T_user">
             <End Role="T_user" EntitySet="T_user" />
@@ -369,7 +444,23 @@
             <End Role="T_user" EntitySet="T_user" />
             <End Role="T_userWords" EntitySet="T_userWords" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_buyCar_T_user" Association="GoShoesDBModel.FK_T_buyCar_T_user">
+            <End Role="T_user" EntitySet="T_user" />
+            <End Role="T_buyCar" EntitySet="T_buyCar" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_T_buyCar_T_user">
+          <End Type="GoShoesDBModel.T_user" Role="T_user" Multiplicity="1" />
+          <End Type="GoShoesDBModel.T_buyCar" Role="T_buyCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="T_buyCar">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -383,6 +474,18 @@
                 <ScalarProperty Name="shoesId" ColumnName="shoesId" />
                 <ScalarProperty Name="shoesNum" ColumnName="shoesNum" />
                 <ScalarProperty Name="orderId" ColumnName="orderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_buyCar">
+            <EntityTypeMapping TypeName="GoShoesDBModel.T_buyCar">
+              <MappingFragment StoreEntitySet="T_buyCar">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="shoesPrices" ColumnName="shoesPrices" />
+                <ScalarProperty Name="carSelfId" ColumnName="carSelfId" />
+                <ScalarProperty Name="shoesId" ColumnName="shoesId" />
+                <ScalarProperty Name="carNum" ColumnName="carNum" />
+                <ScalarProperty Name="shoesImg" ColumnName="shoesImg" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

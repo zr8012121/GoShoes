@@ -17,6 +17,7 @@ namespace NewGoShoes.Models
         public T_shoes()
         {
             this.T__ordersDetail = new HashSet<T__ordersDetail>();
+            this.T_buyCar = new HashSet<T_buyCar>();
         }
     
         public int shoesId { get; set; }
@@ -28,6 +29,7 @@ namespace NewGoShoes.Models
         public int shoesTypeId { get; set; }
     
         public virtual ICollection<T__ordersDetail> T__ordersDetail { get; set; }
+        public virtual ICollection<T_buyCar> T_buyCar { get; set; }
         public virtual T_shoesType T_shoesType { get; set; }
     }
 }

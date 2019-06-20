@@ -154,6 +154,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GoShoes1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\T_buyCar.cs">
+      <DependentUpon>GoShoes1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\T_callMe.cs">
       <DependentUpon>GoShoes1.tt</DependentUpon>
     </Compile>
@@ -191,8 +194,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\GoShoes1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GoShoes1.Context.cs</LastGenOutput>
       <DependentUpon>GoShoes1.edmx</DependentUpon>
+      <LastGenOutput>GoShoes1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\GoShoes1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-5">
                             <span class="label label-warning">没有账号？</span>
-                            <button type="button" id="btn_register"  class="btn btn-primary">注册</button>
+                            <button type="button" id="btn_register" class="btn btn-primary">注册</button>
                         </div>
 
                         <div>
@@ -101,8 +101,10 @@
                         data: { name: name, pwd: pwd },
                         success: function (d) {
                             alert(d.msg);
-                              if (d.code == 200) {//注册成功 直接跳主页
-                            window.location.href = "/Index/Index";
+                            if (d.code == 200) {//注册成功 直接跳主页
+                                //alert('@TempData["user_id"]');
+
+                                 window.location.href = "/Index/Index";
                         }
                         }
                     });//ajax

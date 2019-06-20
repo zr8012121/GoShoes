@@ -23,7 +23,8 @@ namespace NewGoShoes.Controllers
         }
 
         //注册页面
-        public ActionResult Register() {
+        public ActionResult Register()
+        {
 
             return View();
         }
@@ -31,23 +32,30 @@ namespace NewGoShoes.Controllers
 
         //登陆判断用户
         [HttpPost]
-        public JsonResult loginIsOk(string name, string pwd) {
+        public JsonResult loginIsOk(string name, string pwd)
+        {
             GoShoesDBEntities db = new GoShoesDBEntities();
             var s = db.T_user.Where(c => c.userName == name).FirstOrDefault();
-            var obj = new {
-                msg="登陆成功",
-                code=200
+
+            var obj = new
+            {
+                msg = "登陆成功",
+                code = 200,
+
             };
 
-            if (s == null) {
-                obj = new {
-                    msg="用户不存在",
-                    code=201
+            if (s == null)
+            {
+                obj = new
+                {
+                    msg = "用户不存在",
+                    code = 201
                 };
                 return Json(obj);
             }
 
-            if (s.userPassword != pwd) {
+            if (s.userPassword != pwd)
+            {
                 obj = new
                 {
                     msg = "密码错误",
@@ -55,13 +63,16 @@ namespace NewGoShoes.Controllers
                 };
                 return Json(obj);
             }
+            HttpContext.Cache["c_User"] = s;
+
             return Json(obj);
         }
 
 
         //注册用户
         [HttpPost]
-        public JsonResult userRegister(string name, string pwd,string rePwd) {
+        public JsonResult userRegister(string name, string pwd, string rePwd)
+        {
             //var s = new
             //{
             //    userName = name,
@@ -105,7 +116,8 @@ namespace NewGoShoes.Controllers
                 };
                 return Json(obj);
             }
-            if (pwd != rePwd) {
+            if (pwd != rePwd)
+            {
                 obj = new
                 {
                     msg = "两次输入密码不一样",
@@ -115,10 +127,12 @@ namespace NewGoShoes.Controllers
             }
             GoShoesDBEntities db = new GoShoesDBEntities();
             var abc = db.T_user.Where(c => c.userName == name).FirstOrDefault();
-            if (abc != null) {
-                obj = new {
-                    msg="注册失败，用户存在",
-                    code=202
+            if (abc != null)
+            {
+                obj = new
+                {
+                    msg = "注册失败，用户存在",
+                    code = 202
                 };
                 return Json(obj);
             }
@@ -129,8 +143,8 @@ namespace NewGoShoes.Controllers
             s.userClose = 0;
             db.T_user.Add(s);
             int rs = db.SaveChanges();
-          
-            if (rs > 0) obj = new {msg="注册成功",code=200 };
+
+            if (rs > 0) obj = new { msg = "注册成功", code = 200 };
             return Json(obj);
         }
 
