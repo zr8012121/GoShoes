@@ -1,0 +1,193 @@
+﻿@charset "utf-8";
+/* CSS Document */
+#nav {
+	width: 985px;      /*内容固定宽度*/
+	margin: 0px auto;  /*固定宽度且居中*/
+}
+#middle #allnav {
+	width: 100%;    /*自适应宽度，占据整个屏幕*/
+	height: 39px;
+	background-color: #ff7701;
+}
+/*中间导航*/
+#middle #nav {
+	height: 39px;
+}
+#nav ul li {
+	float: left;
+}
+#nav ul li a {
+	float: left;
+	padding: 0px 16px;
+	height: 39px;
+	line-height: 39px;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+}
+#nav ul li a:hover {
+	background-color: #ff8c00
+}
+#nav ul li a.category {
+	background-image: url(images/arrow-down.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*二级菜单*/
+#nav ul li.menuList {
+	position: relative;
+}
+#nav ul li.menuList:hover ul{
+	display:block;
+}
+#nav ul li.menuList ul {
+	background-color: #ff7701;
+	text-align: center;
+	top: 39px;  /*脱离原文档流*/
+	left: 0px;
+	position: absolute;
+	width: 123px;
+	display:none;   /*初始隐藏*/
+}
+#nav ul li ul li {
+	float: none;
+}
+#nav ul li ul li a {
+	float: none
+}
+#nav ul li.menuList:hover{
+	 display:block;   /*ie6不支持li标签的悬浮 二级菜单显示*/
+}
+/*中间内容版块*/
+#middle #content{
+	width:985px;
+	margin:20px auto;
+	overflow:hidden; /*解决父元素浮动塌陷*/
+}
+#content #login{
+	/*border:2px solid #dedede;*/
+	/*padding:10px;*/
+	float:right;
+	width:400px;
+	/*height:500px;*/
+}
+#content #register{
+	/*border:1px solid #dedede;*/
+	/*padding:10px;*/
+	float:left;
+	width:550px;
+}
+/*设置注册和登录的fieldset边框*/
+#content fieldset{
+	/*color:black;*/ /*灰色*/
+    color:#333;
+	border:1px solid #dedede;
+	/*border:2px solid #ccc;*/
+
+}
+
+/*设置注册登录的legend标题*/
+#content legend{
+	height:36px;
+	font:bold 20px/36px Verdana, Geneva, sans-serif;
+	color:#f8ae00;
+	margin-left:20px; /*左外边距*/
+}
+#content ul{
+	overflow:hidden; /*解决ul浮动塌陷,避免ul下面的元素往上靠*/
+	margin-left:12px;
+	width:100%;/*解决在ie6中下面元素上靠的问题*/
+}
+#content ul li{
+	float:left;
+}
+#content ul li a{
+	display:block;
+	width:75px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	margin-right:5px;
+	background-image:url(../images/gray.gif);
+}
+#content ul li a.current{
+	color:white;
+	background-image:url(../images/current.gif);
+
+}
+#register .box{
+	background:#fafafa;	
+	overflow:hidden;   /*两个子版块的高度均是302px,父版块只能显示一个子版块，溢出的版块隐藏*/
+    height:302px;
+	
+}
+#register .box #emailreg,#register .box #phonereg{
+	padding:15px 30px;
+    height:302px;
+	
+}
+/*邮箱注册中段落的垂直间隔*/
+#register #emailreg  p {
+	margin-bottom:10px;
+}
+/*手机注册中段落的垂直间隔*/
+#register #phonereg p{
+	margin-bottom:22px;
+}
+/*文本框、下拉列表框*/
+#content .txt{
+	border:1px solid #a5afc3;/*细边框样式*/
+	height:25px;
+	line-height:25px;
+}
+/*下拉列表框的宽度*/
+#content select.txt{
+	width:80px;
+}
+/*输入验证码的文本框的宽度*/
+#content input.check{
+	width:100px;
+}
+#content  label {
+	width:85px; /*统一文字的宽度，让上下的文本框对齐*/
+	font-size:14px;
+	display:block;
+	float:left;
+	text-align:right;
+     color:#666; /*深灰色*/
+	/*color:black;*/
+	height:27px;  /*文本框的高度25px，文本框的边框是2px*/
+	line-height:27px;/*文字和文本框垂直居中*/
+}
+
+
+#content input.btn{
+	border:none;
+	vertical-align:middle; /*图片提交按钮和文字垂直居中*/
+	margin-right:10px;   /*登录，注册的图片提交按钮*/
+
+}
+
+
+
+
+
+
+
+
+
+#login .box {
+	background:#fafafa;
+	height:152px;
+	overflow:hidden;
+}
+#login .box #email,#phone{
+	padding:15px 30px;
+	height:122px;
+}
+#login p{
+	      margin-bottom:10px;
+}
+

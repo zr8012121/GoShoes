@@ -1,0 +1,218 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Single</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //custom-theme -->
+    <link href="~/Scripts/GoShoes/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Scripts/GoShoes/css/shop.css" type="text/css" media="screen" property="" />
+    <link href="~/Scripts/GoShoes/css/style7.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Scripts/GoShoes/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/Scripts/GoShoes/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!-- Owl-carousel-CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Scripts/GoShoes/css/jquery-ui1.css">
+    <link href="~/Scripts/GoShoes/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome-icons -->
+    <link href="~/Scripts/GoShoes/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- //font-awesome-icons -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="banner_top innerpage" id="home">
+        <div class="wrapper_top_w3layouts">
+            <div class="header_agileits">
+                <div class="logo inner_page_log">
+                    <h1><a class="navbar-brand" href="/index/index"><span>Go</span> <i>Shoes</i></a></h1>
+                </div>
+                <div class="overlay overlay-contentpush">
+                    <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                    <nav>
+                        <ul>
+                            <li><a href="/index/index" class="active">主页</a></li>
+                            <li><a href="about.html">关于我们</a></li>
+                            <li><a href="/notfound/notfound">404</a></li>
+                            <li><a href="/shop/shop">购鞋</a></li>
+                            <li><a href="/contact/contact">联系我们</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mobile-nav-button">
+                    <button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                </div>
+                <!-- cart details -->
+                <div class="top_nav_right">
+                    <div class="shoecart shoecart2 cart cart box_1">
+                        <form action="#" method="post" class="last">
+                            <input type="hidden" name="cmd" value="_cart">
+                            <input type="hidden" name="display" value="1">
+                            <button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //cart details -->
+        <!-- search -->
+        <div class="search_w3ls_agileinfo">
+            <div class="cd-main-header">
+                <ul class="cd-header-buttons">
+                    <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                </ul>
+            </div>
+            <div id="cd-search" class="cd-search">
+                <form action="#" method="post">
+                    <input name="Search" type="search" placeholder="输入你要查询的内容..">
+                </form>
+            </div>
+        </div>
+        <!-- //search -->
+        <div class="clearfix"></div>
+        <!-- /banner_inner -->
+        <div class="services-breadcrumb_w3ls_agileinfo">
+            <div class="inner_breadcrumb_agileits_w3">
+
+                <ul class="short">
+                    <li><a href="/index/index">主页</a><i>|</i></li>
+                    <li>详情</li>
+                </ul>
+            </div>
+        </div>
+        <!-- //banner_inner -->
+    </div>
+
+    <!-- //banner -->
+
+    <script type="text/javascript" src="~/Scripts/GoShoes/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- cart-js -->
+    <script src="~/Scripts/GoShoes/js/minicart.js"></script>
+    <script>
+
+    </script>
+    <!-- //cart-js -->
+    <!-- /nav -->
+    <script src="~/Scripts/GoShoes/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/Scripts/GoShoes/js/classie.js"></script>
+    <script src="~/Scripts/GoShoes/js/demo1.js"></script>
+    <!-- //nav -->
+    <!-- single -->
+    <script src="~/Scripts/GoShoes/js/imagezoom.js"></script>
+    <!-- single -->
+    <!-- script for responsive tabs -->
+    <script src="~/Scripts/GoShoes/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+
+            //添加到购物车
+            $("#btn_add").click(function () {
+                var shoesPrice = $("#shoesPrice").html().split("$")[1];
+                var shoesName = $("#shoesName").text();
+
+
+                var shoesNum = $("#shoesNum").val();
+
+                var shoesImg ="~"+ $("#shoesImg").attr("src");
+                var datas = {};
+                datas.shoesPrice = shoesPrice;
+                datas.shoesName = shoesName;
+                datas.shoesNum = shoesNum;
+                datas.shoesImg = shoesImg;
+
+                $.ajax({
+                    url: "/single/CreateCar",
+                    type: "post",
+                    dataType: "json",
+                    data: $.param(datas),
+                    success: function (d) {
+                        alert(d.msg)
+
+                    }
+                });//ajax
+
+
+
+
+            });
+
+
+        });
+    </script>
+    <script>
+
+    </script>
+    <!-- FlexSlider -->
+    <script src="~/Scripts/GoShoes/js/jquery.flexslider.js"></script>
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!-- //FlexSlider-->
+    <!--search-bar-->
+    <script src="~/Scripts/GoShoes/js/search.js"></script>
+    <!--//search-bar-->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/GoShoes/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/GoShoes/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smoth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/GoShoes/js/bootstrap-3.1.1.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*中间导航*/
+#nav{
+	width: 985px;      /*内容固定宽度*/
+	margin: 0px auto;  /*固定宽度且居中*/
+	height:39px;
+}
+
+#middle {
+    background-color:#ffffff
+}
+#middle #allnav {
+    width: 100%; /*自适应宽度，占据整个屏幕*/
+    height: 39px;
+    background-color: #b4adad;
+}
+
+
+#nav ul li {
+	float: left;
+}
+#nav ul li a {
+	float: left;  /*兼容ie6*/
+	padding: 0px 16px;
+	height: 39px;
+	line-height: 39px;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+}
+#nav ul li a:hover {
+	background-color: #ff8c00
+}
+#nav ul li a.category {
+	background-image: url(../images/arrow-down.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*导航菜单的二级菜单用到定位*/
+#nav ul li.menuList {
+	position: relative;
+}
+#nav ul li.menuList ul {
+	background-color: #ff7701;
+	text-align: center;
+	top: 39px;  /*脱离原文档流*/
+	left: 0px;
+	position: absolute;
+	width: 129px;
+	display:none;
+}
+#nav ul li.menuList:hover ul{
+display:block;
+	
+}
+#nav ul li ul li {
+	float: none;
+}
+#nav ul li ul li a {
+	float: none
+}
+#middle #content{
+	     width:985px;
+		 margin:20px auto;
+		
+}
+/*中间第二块：订单表*/
+#middle #ordertable{
+	padding:20px; /*和边框有间隔*/
+	border:1px solid #dedede;
+	overflow:hidden; /*解决父元素的浮动塌陷*/
+	
+}
+#ordertable ul li{
+	float:left;
+	height:78px; /*和购物车图像的高度一致*/
+	font:bold 25px/78px Verdana, Geneva, sans-serif;
+}
+#ordertable ul li.step{
+	background:url(../images/cart/step1.jpg) no-repeat center;
+	width:679px;
+	margin-left:30px;
+	
+	    
+}
+
+#ordertable .btn{ 
+      border:1px solid #dedede;
+	  background-color:white;
+	  width:16px;
+	  height:16px;
+}
+#ordertable .txt{
+	width:60px;
+	height:30px;
+	border:1px solid #dedede;
+	text-align:center;
+	font:bold 15px/30px Verdana, Geneva, sans-serif;
+	
+}
+#ordertable .txt:hover{
+	border:1px solid red
+}
+#ordertable table{
+	border:1px solid #dedede;
+	border-collapse:collapse;
+	width:100%;
+	clear:both;
+
+}
+#ordertable table tr{
+	height:50px;
+	border-bottom:1px dashed #dedede;
+}
+#ordertable table td,#ordertable th{
+	
+	text-align:center;
+	vertical-align:central;
+}
+/*对单元格的宽度细调*/
+#ordertable table td.item{
+	width:260px;
+	height:60px;
+	text-align:left;
+}
+#ordertable table td.item img{
+	margin-right:10px;
+	 vertical-align:baseline;
+}
+/*汇总的一行*/
+#ordertable table tr td.cal{
+	text-align:right;
+}
+#ordertable table tr td.cal span{
+	font:bold 25px Verdana, Geneva, sans-serif;
+	color:orange;
+}
+/*提交订单的按钮*/
+#ordertable p{
+	text-align:right;
+}
+/*最近浏览*/
+#middle #lastview{
+	margin-top:20px;
+	border:1px solid #dedede;
+	padding:20px;
+	overflow:hidden; /*浮动塌陷*/
+}
+#lastview dl{
+	float:left;
+	height:222px;
+	width:210px;
+	margin-right:20px;
+	
+}
+#lastview dl dd{
+	line-height:25px;
+}
+#lastview dl dd span{
+	font:bold 15px Verdana, Geneva, sans-serif;
+	color:#C30;
+	
+}
+#lastview dl dd.price{float:left;
+}
+#lastview dl dd.num{float:right
+}
+#lastview dl dd.add{
+	              
+				   clear:both;
+				   float:right;
+				  
+}
+#lastview dl dd.add a{
+	color:#F90
+}
+#lastview dl dd.add a:hover{
+	text-decoration:underline;
+}
+#lastview dl dd.add span{
+	                     background:url(../images/icon.gif) 0px -85px;
+	                     width:18px;
+						 height:33px;
+						 display:block;
+						 float:left;
+						 margin-top:2px;
+					    
+}

@@ -1,0 +1,203 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>购物车</title>
+    <link href="~/Scripts/buyCar/css/global.css" type="text/css" rel="stylesheet" />
+    <link href="~/Scripts/buyCar/css/cart.css" type="text/css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/buyCar/js/vue.min.js"></script>
+    <script src="~/Scripts/vue-resource-1.3.4.js"></script>
+</head>
+
+<body>
+    <iframe src="/buyCar/goShoesHead" width="100%" height="220" scrolling="no" frameborder="0"></iframe>
+    <div id="middle">
+        <div id="allnav">
+            <div id="nav">
+                <ul>
+                    <li class="menuList">
+                        <a href="#" class="category">全部商品分类</a>
+                        <ul>
+                            <!--二级菜单-->
+                            <li><a href="#">美食</a></li>
+                            <li><a href="#">旅游</a></li>
+                            <li><a href="#">酒店</a></li>
+                            <li><a href="#">电影</a></li>
+                            <li><a href="#">KTV</a></li>
+                            <li><a href="#">时尚</a></li>
+                            <li><a href="#">生活服务</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/index/index">首页</a></li>
+                    <li><a href="#">团购</a></li>
+                    <li><a href="#">美食</a></li>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">KTV</a></li>
+                    <li><a href="#">酒店订票</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">品牌特卖</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--导航结束-->
+        <div id="content">
+            <div id="ordertable">
+                <ul>
+                    <li>
+                        <img src="~/Scripts/buyCar/images/cart/g1.jpg" />
+                    </li>
+                    <li>我的购物车</li>
+                    <li class="step"></li>
+                </ul>
+                <form>
+                    <table>
+                        <tr>
+                            <th>
+                                <input type="checkbox" :checked="all" @@click="checkAll" />全选
+                            </th>
+                            <th>项目</th>
+                            <th>状态</th>
+                            <th>类型/数量</th>
+                            <th>单价</th>
+                            <th>小计</th>
+                            <th></th>
+                        </tr>
+                        <tr name="data_item" v-for="(tab,index) in list">
+                            <td>
+                                <input type="checkbox" :checked="all" />
+                            </td>
+                            <td class="item">
+                                <a href="detail.html">
+                                    <img :src="tab.img" width="75" height="45" align="left" />{{tab.jieshao}}
+                                </a>
+                            </td>
+
+                            <td>{{tab.static}}</td>
+                            <td>
+                                <input type="button" name="a_jian" value="-" @@click="reduce(index)" class="btn" />
+                                <input class="txt" type="text" name="txt_count" v-model="tab.count" />
+                                <input class="btn" name="a_jia" type="button" value="+" @@click="plus(index)" />
+                            </td>
+                            <td>¥{{tab.price}}</td>
+                            <td>¥{{(tab.sum * tab.count).toFixed(2)}}</td>
+                            <td><a href="javascript:;" name="a_remove" @@click="remove(index)">删除</a></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="7" class="cal">已选<span>{{calcCount}}</span>件商品 应付总额： <span>¥{{calTotal}}</span></td>
+                        </tr>
+                    </table>
+                    <p>
+                        <input type="button" @@click="endA()" id="btn_ok" value="提交" />
+                    </p>
+                </form>
+            </div>
+
+        </div>
+        <!--中间内容结束-->
+    </div>
+    <!--中间结束-->
+    <iframe src="/buyCar/goShoesFoot" width="100%" scrolling="no" frameborder="0" height="800"></iframe>
+
+    <script>
+       
+       
+    var vm= new Vue({
+        el:"#ordertable",
+        data:{
+            list:[],
+            all:true
+        },
+          mounted() {
+                this.ComplainLiset();
+            } ,
+        methods: {
+            ComplainLiset: function () {
+                this.$http.get('/buyCar/GetBuyCar').then(function (data) {
+                    //console.log(data);
+                    this.list = data.body;
+
+                        }, function () {
+                            console.log('请求失败处理')
+                        })
+                },
+            checkAll(){
+             vm.all=!vm.all;
+            },
+            plus(index){
+                vm.list[index].count++;
+            },
+        reduce(index){
+            if(vm.list[index].count>1){
+                vm.list[index].count--;
+            }
+            },
+            endA() {
+                this.$http.get('/buyCar/endAll').then(function (data) {
+                    //console.log(data);
+                    alert(data.body.msg);
+                      window.location.href = "/payment/payment";
+                        }, function () {
+                            console.log('请求失败处理')
+                        })
+            }
+        
+        ,
+            remove(index){
+                vm.list.splice(index,1);
+            }
+        },
+    computed:{
+            calTotal:{//计算总价
+             get:function () {
+                 var total=0;
+                 let me =this;
+                 for (let s=0;s<me.list.length;s++){
+                     total+=me.list[s].sum*me.list[s].count;
+                 }
+                 return total.toFixed(2);
+             }
+            },
+        calcCount:function () {
+            var sum =0;
+            let me = this;
+            for (let s=0;s<me.list.length;s++){
+                sum+=me.list[s].count;
+            }
+            return sum;
+        }
+    }
+    });
+
+    </script>
+    @*<script>
+   
+        $(function () {
+
+            $("#btn_ok").click(function () {
+                $.ajax({
+                    url: "/buyCar/endAll",
+                    type: "Get",
+                    dataType: "json",
+                    success: function (d) {
+                        alert(d.msg);
+                        if (d.code == 200) {
+                            //页面跳转
+                               window.location.href = "/payment/payment";
+                        }//if
+                    } //success
+                });//ajax
+
+            })
+
+        });//function
+    </script>*@
+</body>
+</html>

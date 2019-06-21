@@ -1,0 +1,24 @@
+﻿body {
+      font-size:12px;
+	
+    }
+*{
+
+    margin:0px;
+    padding:0px;
+ }
+ a img{
+ 
+     border:none
+ }
+ a{ text-decoration:none;
+    color:Black;
+    
+ }
+ a:hover
+ {
+     color:Orange;
+ }
+ ul{ list-style:none;
+   }
+     

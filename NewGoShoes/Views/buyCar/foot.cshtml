@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>美淘网页脚</title>
+    <link href="~/Scripts/buyCar/css/global.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #footer {
+            clear: both; /*浮动塌陷*/
+        }
+
+            #footer #allbg {
+                width: 100%; /*页脚的水平横线自适应宽度，占据整个屏幕*/
+                border-top: 3px solid #ff7701;
+                margin-bottom: 0px;
+            }
+
+        #fcontent {
+            width: 985px; /*页脚内容固定宽度*/
+            margin: 0px auto; /*固定宽度且居中*/
+            height: 180px;
+            margin-top: 0px; /*ie6上下div有空白*/
+        }
+
+            #fcontent .con {
+                float: left;
+                border-left: 1px dashed #ff7701;
+                width: 140px;
+                padding-left: 23px;
+            }
+
+            #fcontent h3 {
+                padding: 5px 0px
+            }
+
+            #fcontent p {
+                text-align: center;
+                clear: left;
+                padding: 20px 0px
+            }
+    </style>
+</head>
+
+<body>
+    <div id="footer">
+        <div id="allbg"></div>
+        <!--实现水平横线-->
+        <div id="fcontent">
+            <div class="con">
+                <h3>服务保障</h3>
+                <ul>
+                    <li><a href="#">团购三包</a></li>
+                    <li><a href="#">退换货服务</a></li>
+                    <li><a href="#">支付方式</a></li>
+                </ul>
+            </div>
+            <div class="con">
+                <h3>获取更新</h3>
+                <ul>
+                    <li><a href="#">邮件订阅</a></li>
+                    <li><a href="#">美淘QQ空间</a></li>
+                    <li><a href="#">RSS订阅</a></li>
+                </ul>
+            </div>
+            <div class="con">
+                <h3>移动美淘</h3>
+                <ul>
+                    <li><a href="#">美淘团购APP</a></li>
+                    <li><a href="#">酒店预订APP</a></li>
+                    <li><a href="#">美淘电影APP</a></li>
+                </ul>
+            </div>
+            <div class="con">
+                <h3>商务合作</h3>
+                <ul>
+                    <li><a href="#">友情链接</a></li>
+                    <li><a href="#">团购合作</a></li>
+                    <li><a href="#">开发API</a></li>
+                </ul>
+            </div>
+            <div class="con">
+                <h3>公司信息</h3>
+                <ul>
+                    <li><a href="#">媒体报道</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="con">
+                <h3>用户帮助</h3>
+                <ul>
+                    <li><a href="#">答疑反馈</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">往期团购</a></li>
+                </ul>
+            </div>
+            <p>版权所有：&copy;武汉美淘网络技术有限公司  meitao.com  鄂ICP备13126822号</p>
+        </div>
+    </div>
+</body>
+</html>

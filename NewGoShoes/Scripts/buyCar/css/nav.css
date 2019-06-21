@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav{
+	width: 985px;      /*内容固定宽度*/
+	margin: 0px auto;  /*固定宽度且居中*/
+	height:39px;
+}
+#middle #allnav {
+	width: 100%;    /*自适应宽度，占据整个屏幕*/
+	height: 39px;
+	background-color: #ff7701;
+}
+
+
+#nav ul li {
+	float: left;
+}
+#nav ul li a {
+	float: left;  /*兼容ie6*/
+	padding: 0px 16px;
+	height: 39px;
+	line-height: 39px;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+}
+#nav ul li a:hover {
+	background-color: #ff8c00
+}
+#nav ul li a.category {
+	background-image: url(../images/arrow-down.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*导航菜单的二级菜单用到定位*/
+#nav ul li.menuList {
+	position: relative;
+}
+#nav ul li.menuList ul {
+	background-color: #ff7701;
+	text-align: center;
+	top: 39px;  /*脱离原文档流*/
+	left: 0px;
+	position: absolute;
+	width: 129px;
+	display:none;
+}
+#nav ul li.menuList:hover ul{
+display:block;
+	
+}
+#nav ul li ul li {
+	float: none;
+}
+#nav ul li ul li a {
+	float: none
+}

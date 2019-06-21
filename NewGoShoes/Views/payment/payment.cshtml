@@ -168,7 +168,7 @@
                                                         <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
                                                     </div>
                                                 </div>
-                                                <button class="submit"><span>进行付款 </span></button>
+                                                <button id="btn_ok" class="submit"><span>进行付款 </span></button>
                                             </div>
                                         </section>
                                     </form>
@@ -549,6 +549,11 @@
                     console.log(output);
                 }
             });
+
+            $("#btn_ok").click(function () {
+                alert("付款成功!");
+                window.location.href = "/index/index";
+            })
         });
     </script>
     <!-- //credit-card -->

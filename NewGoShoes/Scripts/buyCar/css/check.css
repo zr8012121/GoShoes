@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+#middle #content{
+	     width:985px;
+		 margin:20px auto;
+		 overflow:hidden; 
+		
+		 
+		
+}
+#content #left{
+	 padding:10px;
+	width:679px;
+	
+	border:1px solid #dedede;
+	float:left;
+	
+}
+#content #right{
+	width:237px;
+
+	border:1px solid #dedede;
+	float:right;
+	 padding:20px;
+}
+ #content #left p.step{
+	background:url(../images/cart/step2.jpg);
+	margin-bottom:10px;
+	width:679px;
+	height:33px;
+}
+ #content #left h3{
+	 margin:20px 0px;
+	 color:#616161;
+ }
+ #content #left h3 span{
+	 font:bold 16px Verdana, Geneva, sans-serif;
+	 color:#F60;
+ }
+ #content #left p.phone{
+	 height:30px;
+	 line-height:30px;
+ }
+ #content #left p.phone span{
+	 color:#F30;
+	 font:bold 12px Verdana, Geneva, sans-serif;
+ }
+ #content #left ul.items{
+	list-style:circle;
+	margin-left:20px;
+	
+}
+ #content #left ul li{
+	line-height:30px;
+}
+#content #left hr{
+	border:1px dashed #dedede;
+}
+#content #left ul.cash{
+	
+	font-size:15px;
+	padding:20px;
+}
+#content #left ul.cash li span{
+	background-image:url(../images/cart/jt1.jpg);
+	width:15px;
+	height:13px;
+	float:left;
+	display:block;
+	margin-top:5px;
+}
+
+#content #left ul.cash li:hover{
+	height:auto;
+	cursor:pointer;
+}
+#content #left ul.cash li:hover span{
+	background-image:url(../images/cart/jt2.jpg);
+}
+
+#content #left ul.cash li{
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+}
+
+#content #left p.sale{
+	text-align:right;
+     margin:10px;
+	font:bold 14px Verdana, Geneva, sans-serif;
+}
+#right dl.easy {
+	width:225px;
+	height:50px;
+	margin:10px 0px;
+}
+#right dl.easy dt{
+	float:left;
+}
+#right dl.easy dd{
+	line-height:24px;
+}
+
+#right dl.help{
+	height:30px;
+	overflow:hidden;
+}
+#right dl.help:hover{
+	height:auto;
+	cursor:pointer;
+}
+#right dl.help dt{
+	height:30px;
+	font-size:13px;
+	line-height:30px;
+}
+
+#right dl.help dd{
+	color:#999
+}

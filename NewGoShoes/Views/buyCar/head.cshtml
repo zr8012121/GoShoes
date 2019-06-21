@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Goshoes网页眉</title>
+    <link href="~/Scripts/buyCar/css/global.css" rel="Stylesheet" type="text/css" />
+       <style type="text/css">
+
+        #header #all {
+            width: 100%; /*自适应宽度，占据整个屏幕*/
+            height: 33px;
+            background-color: #fbfbfb
+        }
+
+        #menu, #search {
+            width: 985px; /*内容固定宽度*/
+            margin: 0px auto; /*固定宽度且居中*/
+        }
+
+        #menu {
+            height: 33px;
+            /* border:1px solid pink;*/
+        }
+
+            /*每项通用的样式*/
+            #menu ul li {
+                float: left;
+                line-height: 33px;
+                height: 33px;
+            }
+
+                #menu ul li.city {
+                    width: 620px;
+                    font-weight: bold;
+                }
+
+                #menu ul li.space {
+                    margin: 0px 10px;
+                }
+
+                    /*购物车背景图像*/
+                    #menu ul li.space span {
+                        background-image: url(images/icon.gif);
+                        width: 18px;
+                        height: 33px;
+                        background-position: 0px -85px;
+                        display: block;
+                        float: left;
+                        margin-top: 8px; /*背景图片和文字垂直方向对齐*/
+                    }
+
+        #search ul li {
+            float: left;
+            height: 73px;
+            line-height: 73px;
+        }
+
+            #search ul li.logo {
+                margin-right: 150px;
+            }
+
+            #search ul li.se {
+                padding-top: 15px;
+                height: 48px;
+            }
+
+        #search input#setxt {
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ff7701;
+            width: 265px;
+            background-image: url(images/search.jpg);
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+
+        #search input#btn {
+            width: 70px;
+            height: 42px;
+            line-height: 42px;
+            background-color: #ff7701;
+            border: none;
+        }
+
+        #search ul li.keyword {
+            margin: 0px 7px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        
+        <div id="search">
+            <ul>
+                <li class="logo"><a href="#"><img src="~/Scripts/buyCar/images/logo.jpg" width="304" height="73" /></a></li>
+                <li class="se">
+                    <form>
+                        <input type="text" id="setxt" /><input type="button" value="搜搜" id="btn" style="position:relative;top:-1px;left:0px" />
+                    </form>
+                </li>
+                <li class="keyword"><a href="#">旅游</a></li>
+                <li class="keyword"><a href="hottopic.html" target="_parent">酒店</a></li>
+                <li class="keyword"><a href="#">kTV</a></li>
+            </ul>
+        </div> <!--页眉搜索结束-->
+    </div>
+</body>
+</html>
