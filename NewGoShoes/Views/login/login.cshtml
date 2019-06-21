@@ -32,7 +32,6 @@
 <body>
 
     <div id="particles-js"></div>
-
     <ul class="cb-slideshow">
         <li></li>
         <li></li>
@@ -101,11 +100,17 @@
                         data: { name: name, pwd: pwd },
                         success: function (d) {
                             alert(d.msg);
-                            if (d.code == 200) {//注册成功 直接跳主页
+                            if (d.code == 200) {//登陆成功 直接跳主页
                                 //alert('@TempData["user_id"]');
 
                                  window.location.href = "/Index/Index";
-                        }
+                            }
+
+
+                            if (d.code == 204) {
+                                //管理员跳后台管理
+                                    window.location.href = "/userManage/userManage";
+                            }
                         }
                     });//ajax
                 }//else

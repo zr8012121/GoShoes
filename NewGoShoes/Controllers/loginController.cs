@@ -63,6 +63,29 @@ namespace NewGoShoes.Controllers
                 };
                 return Json(obj);
             }
+
+
+            if (s.userClose == 1)
+            {
+                obj = new
+                {
+                    msg = "用户被封禁",
+                    code = 203
+                };
+                return Json(obj);
+            }
+
+            if (s.userPowerId == 1)
+            {
+                obj = new
+                {
+                    msg = "管理员登陆",
+                    code = 204
+                };
+                return Json(obj);
+            }
+
+
             HttpContext.Cache["c_User"] = s;
 
             return Json(obj);

@@ -15,23 +15,51 @@
     <script src="~/Scripts/jqueryeasyui_ttrar/jquery.easyui.min.js"></script>
     <title>userManage</title>
 </head>
-<body>
-    <div>
+
+<body class="easyui-layout">
+    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
+    <div data-options="region:'west',title:'West',split:true" style="width:100px;">
+        <a href="/login/login">返回登陆</a>
+
+    </div>
+    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+
         <table id="dg"></table>
     </div>
-
-    <script>
-        $(function () {
-            $('#dg').datagrid({
-                url: 'datagrid_data.json',
-                columns: [[
-                    { field: 'code', title: '代码', width: 100 },
-                    { field: 'name', title: '名称', width: 100 },
-                    { field: 'price', title: '价格', width: 100, align: 'right' }
-                ]]
-            });
-
-        });//function
-    </script>
 </body>
+<script>
+    $(function () {
+        $('#dg').datagrid({
+            url: '/userManage/GetList',
+            columns: [[
+                { field: 'uid', title: '用户编号', width: 100 },
+                { field: 'uname', title: '用户名称', width: 100 },
+                { field: 'upwd', title: '用户密码', width: 100, align: 'right' },
+                { field: 'uclose', title: '用户封禁状态', width: 100 },
+                { field: 'upower', title: '用户权限', width: 100 },
+                {
+                    field: 'fj', title: '操作', width: 100, formatter: function (v, r) {
+                        return "<a href='#' onclick='Ban(" + r.uid + ")' >封禁</a>"
+                    }
+                }
+            ]]
+        });
+    });//function
+
+    //封禁函数
+    function Ban(uid) {
+
+        $.ajax({
+            url: "/userManage/Ban",
+            type: "post",
+            dataType: "json",
+            data: { "uid": uid },
+            success: function (d) {
+                alert(d.msg);
+                $("#dg").datagrid("reload");
+            }
+        });//ajax
+
+    }
+</script>
 </html>
