@@ -168,6 +168,11 @@ namespace NewGoShoes.Controllers
             int rs = db.SaveChanges();
 
             if (rs > 0) obj = new { msg = "注册成功", code = 200 };
+
+             var ss = db.T_user.Where(c => c.userName == s.userName).FirstOrDefault();
+
+            HttpContext.Cache["c_User"] = s;
+
             return Json(obj);
         }
 
